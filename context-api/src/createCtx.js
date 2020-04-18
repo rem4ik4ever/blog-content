@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function createCtx() {
-  const ctx = React.createContext(undefined);
+  const context = React.createContext(undefined);
   function useCtx() {
-    const c = React.useContext(ctx);
-    if (!c) throw new Error("useCtx must be inside a Provider with a value");
-    return c;
+    const ctx = React.useContext(context);
+    if (!ctx) throw new Error("useCtx must be inside a ContextProvider");
+    return ctx;
   }
-  return [useCtx, ctx.Provider];
+  return [useCtx, context.Provider];
 }
